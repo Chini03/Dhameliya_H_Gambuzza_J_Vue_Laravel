@@ -14,6 +14,7 @@ class GenresSeeder extends Seeder
      */
     public function run()
     {
+        // created an array to choose form
         $genres = [
             'Pop',
             'Rock',
@@ -25,6 +26,7 @@ class GenresSeeder extends Seeder
             'Country'
         ];
 
+        // same as INSERT INTO genres (name) VALUES ('Pop'); for each value
         foreach ($genres as $genre) {
             Genres::create(['name' => $genre]);
         }
