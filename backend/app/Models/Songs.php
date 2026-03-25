@@ -9,6 +9,7 @@ class Songs extends Model
 {
     use HasFactory;
 
+    // again allows mass assignment 
     protected $fillable = [
         'name',
         'artist_id',
