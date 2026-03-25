@@ -16,8 +16,19 @@ class SongsFactory extends Factory
     public function definition()
     {
         return [
-            // creates random 3 word sentences as names of songs
-            'name' => $this->faker->sentence(3),
+            // choses from the list of songs provided and doesnt repeat them
+            'name' => $this->faker->unique()->randomElement([
+                'Midnight Echo',
+                'Electric Love',
+                'Lost in the Echo',
+                'Neon Nights',
+                'Silent Waves',
+                'Golden Skies',
+                'Broken Rhythm',
+                'Echoes of You',
+                'Endless Horizon',
+                'Fading Memories'
+            ]),
             // shuffles the artists entires and picks their ids
             'artist_id' => Artists::inRandomOrder()->value('id'),
             // same as artists
