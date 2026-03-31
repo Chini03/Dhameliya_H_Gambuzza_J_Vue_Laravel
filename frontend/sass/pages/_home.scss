@@ -1,0 +1,482 @@
+@use "../abstracts";
+
+// base 
+body {
+  font-family: abstracts.$font-main;
+  color: abstracts.$color-white;
+  background-color: abstracts.$color-bg-main;
+  line-height: 1.5;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: abstracts.$color-white;
+}
+
+a {
+  text-decoration: none;
+}
+
+//  ------------------------- Hero -------------------------
+
+.hero {
+  background: url("../images/hero-image.jpeg") center center / cover no-repeat;
+  min-height: 38rem;
+  position: relative;
+}
+
+.hero-overlay {
+  min-height: 38rem;
+  display: flex;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.673);
+}
+
+.hero-content {
+  text-align: center;
+}
+
+.hero-title {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.hero-title-top {
+  font-family: abstracts.$font-title;
+  font-size: 3rem;
+  line-height: 1.2;
+  font-weight: 600;
+  color: abstracts.$color-text-light;
+}
+
+.hero-title-bottom {
+  font-family: abstracts.$font-title;
+  font-size: 3rem;
+  line-height: 1;
+  font-weight: 600;
+  color: abstracts.$color-accent;
+}
+
+.hero-copy {
+  max-width: 48rem;
+  margin: 0 auto 2rem;
+  font-size: 1.35rem;
+  line-height: 1.4;
+}
+
+.hero-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2rem;
+  font-size: 1.4rem;
+  font-weight: 700;
+  background-color: abstracts.$color-accent;
+  color: abstracts.$color-black;
+  border-radius: 1.1rem;
+  transition: abstracts.$transition-fast;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+}
+
+
+//  ------------------------- Features -------------------------
+
+.features {
+  padding: 26px 0;
+  background-color: abstracts.$color-bg-section;
+}
+
+.feature-card {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 18px 0;
+}
+
+.feature-icon {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+}
+
+.feature-text h3 {
+  font-size: 1.9rem;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 4px;
+}
+
+.feature-text p {
+  font-size: 1.2rem;
+  line-height: 1.3;
+  color: abstracts.$color-text-muted;
+}
+
+
+//  ------------------------- Section Titles -------------------------
+
+.section-title {
+  font-family: abstracts.$font-title;
+  font-size: 2.7rem;
+  line-height: 1.1;
+  margin-bottom: 12px;
+  color: abstracts.$color-text-light;
+}
+
+.section-subtitle {
+  font-size: 1rem;
+  line-height: 1.4;
+  color: abstracts.$color-text-muted;
+}
+
+
+//  ------------------------- Featured albums -------------------------
+
+.albums {
+  padding: abstracts.$section-padding;
+  background-color: abstracts.$color-bg-dark;
+}
+
+.albums-heading {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.album-grid {
+  row-gap: 24px;
+}
+
+.album-card {
+  padding: 14px;
+  background: abstracts.$color-bg-card;
+  border-radius: abstracts.$radius-xl;
+  border: 2px solid transparent;
+  transition: abstracts.$transition-fast;
+
+  &:hover {
+    border-color: abstracts.$color-accent;
+    transform: translateY(-4px);
+  }
+}
+
+.album-cover {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  margin-bottom: 16px;
+  background-color: #d2d2d2;
+  border-radius: abstracts.$radius-large;
+  overflow: hidden;
+}
+
+.add-to-cart {
+  position: absolute;
+  left: 50%;
+  bottom: 12px;
+  transform: translateX(-50%);
+  padding: 8px 14px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  background-color: abstracts.$color-accent;
+  color: abstracts.$color-bg-dark;
+  border-radius: abstracts.$radius-medium;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity abstracts.$transition-fast;
+}
+
+.album-card:hover .add-to-cart {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.album-info {
+  text-align: left;
+}
+
+.genre {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: abstracts.$color-accent;
+  margin-bottom: 10px;
+}
+
+.artist-name {
+  font-family: abstracts.$font-title;
+  font-size: 1rem;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.album-name {
+  font-size: 0.95rem;
+  margin-bottom: 12px;
+  color: abstracts.$color-text-muted;
+}
+
+.price {
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+
+//  ------------------------- quote section -------------------------
+
+.quote-section {
+  min-height: 24rem;
+  background: url("../images/divider.jpeg") center 75% / cover no-repeat;
+}
+
+.quote-overlay {
+  min-height: 24rem;
+  display: flex;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.679);
+}
+
+.quote-content {
+  text-align: center;
+}
+
+.quote-text {
+  font-family: abstracts.$font-title;
+  font-size: 2.6rem;
+  line-height: 1.15;
+  margin-bottom: 1rem;
+}
+
+.quote-author {
+  font-size: 1.1rem;
+}
+
+
+//  ------------------------- new arrivals -------------------------
+
+.new-arrivals {
+  padding: 6rem 0;
+  background-color: abstracts.$color-bg-dark;
+}
+
+.arrivals-heading {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.arrivals-grid {
+  row-gap: 2rem;
+}
+
+
+//  ------------------------- why vinyl -------------------------
+
+.why-vinyl-section {
+  padding: 6rem 0 7rem;
+  background-color: abstracts.$color-bg-dark;
+}
+
+.why-heading {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.why-grid {
+  row-gap: 1.5rem;
+}
+
+.why-card {
+  background-color: abstracts.$color-white;
+  color: abstracts.$color-black;
+  padding: 1.75rem 1.5rem 1.9rem;
+  border-radius: abstracts.$radius-large;
+}
+
+.why-icon {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.why-card h3 {
+  font-family: abstracts.$font-title;
+  font-size: 1.9rem;
+  margin-bottom: 0.9rem;
+}
+
+.why-card p {
+  font-size: 1.05rem;
+  line-height: 1.55;
+  color: #3b3b3b;
+}
+
+
+//  -------------------------------------------------- TABLET --------------------------------------------------
+//  ------------------------------------------------------------------------------------------------------------
+
+@media screen and (min-width: 768px) {
+
+  .hero,
+  .hero-overlay {
+    min-height: 44rem;
+  }
+
+  .hero-title-top,
+  .hero-title-bottom {
+    font-size: 5.7rem;
+  }
+
+  .hero-copy {
+    font-size: 1.5rem;
+    max-width: 52rem;
+  }
+
+  .features {
+    padding: 22px 0;
+  }
+
+  .feature-icon {
+    width: 62px;
+    height: 62px;
+  }
+
+  .feature-text h3 {
+    font-size: 1.6rem;
+  }
+
+  .feature-text p {
+    font-size: 1rem;
+  }
+
+  .albums {
+    padding: abstracts.$section-padding-lg;
+  }
+
+  .section-title {
+    font-size: 3.4rem;
+  }
+
+  .section-subtitle {
+    font-size: 1.15rem;
+  }
+
+  .album-card {
+    padding: 16px;
+  }
+
+  .artist-name {
+    font-size: 1.05rem;
+  }
+
+  .quote-section,
+  .quote-overlay {
+    min-height: 28rem;
+  }
+
+  .quote-text {
+    font-size: 3.8rem;
+  }
+
+  .quote-author {
+    font-size: 1.4rem;
+  }
+
+  .new-arrivals {
+    padding: 6.5rem 0;
+  }
+
+  .arrivals-heading {
+    margin-bottom: 3rem;
+  }
+
+  .why-vinyl-section {
+    padding: 6.5rem 0 7rem;
+  }
+
+  .why-card h3 {
+    font-size: 1.75rem;
+  }
+
+  .why-card p {
+    font-size: 1rem;
+  }
+}
+
+//  -------------------------------------------------- DESKTOP --------------------------------------------------
+//  ------------------------------------------------------------------------------------------------------------
+
+@media screen and (min-width: 1200px) {
+
+  .hero,
+  .hero-overlay {
+    min-height: 75vh;
+  }
+
+  .hero-title-top,
+  .hero-title-bottom {
+    font-size: 5.5rem;
+  }
+
+  .hero-copy {
+    font-size: 1.4rem;
+    max-width: 58rem;
+  }
+
+  .features {
+    padding: 24px 0;
+  }
+
+  .feature-icon {
+    width: 68px;
+    height: 68px;
+  }
+
+  .feature-text h3 {
+    font-size: 1.7rem;
+  }
+
+  .albums {
+    padding: 110px 0;
+  }
+
+  .section-title {
+    font-size: 4rem;
+  }
+
+  .section-subtitle {
+    font-size: 1.2rem;
+  }
+
+  .artist-name {
+    font-size: 1.1rem;
+  }
+
+  .quote-section,
+  .quote-overlay {
+    min-height: 30rem;
+  }
+
+  .quote-text {
+    font-size: 4.8rem;
+  }
+
+  .quote-author {
+    font-size: 1.8rem;
+  }
+
+  .new-arrivals {
+    padding: 7rem 0;
+  }
+
+  .why-vinyl-section {
+    padding: 7rem 0 7.5rem;
+  }
+
+  .why-card h3 {
+    font-size: 1.7rem;
+  }
+}
