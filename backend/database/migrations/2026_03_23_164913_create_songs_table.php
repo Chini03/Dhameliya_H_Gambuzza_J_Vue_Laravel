@@ -18,7 +18,8 @@ class CreateSongsTable extends Migration
             $table->string('name');
             $table->bigInteger('artist_id')->nullable();
             $table->bigInteger('genre_id')->nullable();
-            $table->decimal('price', 8, 2);
+            $table->decimal('price', 8, 2)->nullable();
+            $table->text('description')->nullable();
             $table->string('thumbnail')->nullable();
             $table->string('thumbnail_alt')->nullable();
             $table->timestamps();

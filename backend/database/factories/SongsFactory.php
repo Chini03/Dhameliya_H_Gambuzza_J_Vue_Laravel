@@ -27,7 +27,9 @@ class SongsFactory extends Factory
                 'Broken Rhythm',
                 'Echoes of You',
                 'Endless Horizon',
-                'Fading Memories'
+                'Fading Memories',
+                'Kind of Blue',
+                'The Dark Side of the Moon'
             ]),
             // shuffles the artists entires and picks their ids
             'artist_id' => Artists::inRandomOrder()->value('id'),
@@ -35,6 +37,8 @@ class SongsFactory extends Factory
             'genre_id' => Genres::inRandomOrder()->value('id'),
             // creates random 2 digit float numbers between the specified range
             'price' => $this->faker->randomFloat(2, 0.99, 19.99),
+            // 
+            'description' => $this->faker->paragraph(),
             // null because to be entered manually
             'thumbnail' => null,
             'thumbnail_alt' => null

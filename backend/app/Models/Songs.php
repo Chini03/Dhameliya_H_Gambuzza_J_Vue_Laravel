@@ -15,6 +15,7 @@ class Songs extends Model
         'artist_id',
         'genre_id',
         'price',
+        'description',
         'thumbnail',
         'thumbnail_alt'
     ];
