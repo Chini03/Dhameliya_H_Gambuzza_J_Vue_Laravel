@@ -1,5 +1,5 @@
 # Vinyl Record Store: Laravel, Vue and AJAX Build 🎵💿
-<img src="images/vinyl-readme.jpg" alt="readme vynil image" width="800">
+<img src="frontend/images/vinyl-readme.jpg" alt="readme vynil image" width="800">
 
 This project is an assignment for the Multimedia Authoring 4 (MMED-5006) and Multimedia & The Internet (MMED-3014) courses in the Interactive Media Design program at Fanshawe College (Winter 2026).
 
