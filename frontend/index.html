@@ -1,11 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vinyl Vault</title>
+   <link href="css/grid.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script type="module" src="js/main.js"></script>
 </head>
 <body>
-  
+
+<header class="site-header">
+  <div class="grid-con header-grid">
+
+    <div class="col-span-2 m-col-start-1 m-col-end-3 l-col-start-1 l-col-end-3 header-logo">
+      <a href="index.html">
+        <img src="images/logo-vinyl.png" alt="Vinyl Vault logo">
+      </a>
+    </div>
+
+    <button id="mobileMenuBtn" class="burger-button col-start-4 col-end-5">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav class="nav-menu col-span-4 m-col-start-7 m-col-end-13 l-col-start-7 l-col-end-13">
+      <a href="#">Home</a>
+      <a href="#">Shop</a>
+      <a href="#">Artist</a>
+      <a href="#">Genres</a>
+    </nav>
+
+    <nav id="mobileMenu" class="mobile-menu col-span-4">
+      
+      <a href="#">Home</a>
+      <a href="#">Shop</a>
+      <a href="#">Artist</a>
+      <a href="#">Genres</a>
+    </nav>
+
+  </div>
+</header>
+
+
+  <!-- Footer -->
+<footer class="site-footer">
+  <div class="grid-con footer-top">
+
+    <div class="col-span-4 m-col-start-1 m-col-end-4 l-col-start-1 l-col-end-4 footer-brand">
+      <div class="footer-logo">
+        <img src="images/logo-vinyl.png" alt="Vinyl Vault logo">
+      </div>
+
+      <p>
+        Curating the finest vinyl records for collectors and music enthusiasts since 2024.
+      </p>
+    </div>
+
+    <div class="col-span-4 m-col-start-5 m-col-end-7 l-col-start-5 l-col-end-7 footer-links">
+      <h3>SHOP</h3>
+      <a href="#">All Vinyls</a>
+      <a href="#">By Artist</a>
+      <a href="#">By Genre</a>
+      <a href="#">New Arrivals</a>
+      <a href="#">Best Seller</a>
+    </div>
+
+    <div class="col-span-4 m-col-start-8 m-col-end-10 l-col-start-8 l-col-end-10 footer-links">
+      <h3>ABOUT US</h3>
+      <a href="#">Our Story</a>
+      <a href="#">Vinyl Guide</a>
+      <a href="#">Care Tips</a>
+    </div>
+
+    <div class="col-span-4 m-col-start-10 m-col-end-13 l-col-start-10 l-col-end-12 footer-links">
+      <h3>FOLLOW US</h3>
+      <a href="#">Instagram</a>
+      <a href="#">TikTok</a>
+      <a href="#">Facebook</a>
+    </div>
+
+  </div>
+
+  <div class="grid-con footer-bottom">
+    <p class="col-span-4 m-col-start-4 m-col-end-10 l-col-start-4 l-col-end-10 copyright">
+      © 2026 Vinyl Vault. All rights reserved.
+    </p>
+  </div>
+</footer>
+
 </body>
 </html>
