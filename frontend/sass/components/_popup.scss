@@ -1,0 +1,160 @@
+@use "../abstracts";
+
+.album-popup.hidden {
+  display: none;
+}
+
+.album-popup {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+}
+
+.album-popup-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(4px);
+}
+
+.album-popup-shell {
+  position: relative;
+  z-index: 2;
+  width: min(92%, 1400px);
+  margin: 4vh auto 0;
+  padding: 1.25rem;
+  background: #12141b;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1.8rem;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
+}
+
+.album-popup-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 3rem;
+  height: 3rem;
+  display: grid;
+  place-items: center;
+  font-size: 1.7rem;
+  line-height: 1;
+  color: abstracts.$color-white;
+  background: #050505;
+  border: none;
+  border-radius: 0.9rem;
+  cursor: pointer;
+}
+
+.album-popup-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.album-popup-image-wrap {
+  border-radius: 1.4rem;
+  overflow: hidden;
+  background: #0d0d0d;
+}
+
+.album-popup-image {
+  width: 100%;
+  height: 100%;
+  min-height: 18rem;
+  object-fit: cover;
+  display: block;
+}
+
+.album-popup-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.popup-genre {
+  width: fit-content;
+  margin-bottom: 1rem;
+  padding: 0.45rem 1rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: abstracts.$color-accent;
+  background: rgba(247, 160, 36, 0.12);
+  border-radius: 999px;
+}
+
+.popup-title {
+  margin-bottom: 0.8rem;
+  font-family: abstracts.$font-title;
+  font-size: 2.2rem;
+  line-height: 0.95;
+  color: abstracts.$color-white;
+}
+
+.popup-artist {
+  margin-bottom: 1.4rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 1.2;
+  color: abstracts.$color-text-muted;
+}
+
+.popup-price {
+  margin-bottom: 1.5rem;
+  font-size: 2.3rem;
+  font-weight: 800;
+  line-height: 1;
+  color: abstracts.$color-white;
+}
+
+.popup-cart-button {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 1.4rem;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: abstracts.$color-black;
+  background: abstracts.$color-accent;
+  border-radius: 1rem;
+  transition: abstracts.$transition-fast;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .album-popup-shell {
+    padding: 2rem;
+  }
+
+  .album-popup-content {
+    grid-template-columns: 1fr 1fr;
+    align-items: stretch;
+    gap: 2rem;
+  }
+
+  .album-popup-image {
+    min-height: 28rem;
+  }
+
+  .popup-title {
+    font-size: 3.2rem;
+  }
+
+  .popup-artist {
+    font-size: 1.6rem;
+  }
+
+  .popup-price {
+    font-size: 3.2rem;
+  }
+
+  .popup-cart-button {
+    font-size: 1.4rem;
+  }
+}
+
