@@ -1,0 +1,130 @@
+@use "../abstracts";
+
+
+.site-header {
+  background-color: abstracts.$color-black;
+  padding: 1rem 0;
+}
+
+.header-grid {
+  align-items: center;
+}
+
+.header-logo img {
+  height: 90px;
+  width: auto;
+  display: block;
+  transition: transform abstracts.$transition-fast;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+.burger-button {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 6px;
+  margin-left: auto;
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.burger-button span {
+  width: 32px;
+  height: 3px;
+  border-radius: 2px;
+  background-color: abstracts.$color-white;
+}
+
+.nav-menu {
+  display: none;
+}
+
+.mobile-menu {
+  display: none;
+  grid-column: 1 / -1;
+  padding: 1rem 0 0;
+  background-color: abstracts.$color-black;
+}
+
+.mobile-menu.open {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.mobile-menu a {
+  padding: 1rem 0;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: abstracts.$color-white;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+  &:hover {
+    color: abstracts.$color-accent;
+  }
+}
+
+.close-menu {
+  align-self: flex-end;
+  margin-bottom: 0.5rem;
+  padding: 0;
+  font-size: 2rem;
+  line-height: 1;
+  color: abstracts.$color-white;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.burger-button {
+  transition: transform abstracts.$transition-fast;
+}
+
+.burger-button.active {
+  transform: rotate(90deg);
+}
+//---------------------------- tablet ----------------------------
+
+@media screen and (min-width: 768px) {
+  .burger-button,
+  .mobile-menu {
+    display: none !important;
+  }
+
+  .nav-menu {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 3.5rem;
+  }
+
+  .nav-menu a {
+    font-size: 2.1rem;
+    font-weight: 500;
+    color: abstracts.$color-white;
+    transition: color abstracts.$transition-fast;
+
+    &:hover {
+      color: abstracts.$color-accent;
+    }
+  }
+}
+
+
+//---------------------------- desktop ----------------------------
+
+@media screen and (min-width: 1200px) {
+  .nav-menu {
+    gap: 6rem;
+  }
+
+  .nav-menu a {
+    font-size: 1.4rem;
+  }
+}

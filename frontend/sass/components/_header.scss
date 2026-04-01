@@ -1,0 +1,67 @@
+@use "../abstracts";
+
+.site-header {
+  background-color: abstracts.$color-black;
+  padding: 1rem 0;
+}
+
+.header-grid {
+  align-items: center;
+}
+
+.header-logo img {
+  height: 90px;
+  width: auto;
+  display: block;
+  transition: transform abstracts.$transition-fast;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 3.5rem;
+}
+
+.nav-menu a {
+  color: abstracts.$color-white;
+  font-size: 2.1rem;
+  font-weight: 500;
+  transition: color abstracts.$transition-fast;
+
+  &:hover {
+    color: abstracts.$color-accent;
+  }
+}
+
+// tablet
+
+@media screen and (min-width: 768px) {
+  .header-logo img {
+    height: 90px;
+  }
+
+  .nav-menu {
+    gap: 3.5rem;
+  }
+
+  .nav-menu a {
+    font-size: 2.1rem;
+  }
+}
+
+// Desktop
+
+@media screen and (min-width: 1200px) {
+  .nav-menu {
+    gap: 6rem;
+  }
+
+  .nav-menu a {
+    font-size: 1.4rem;
+  }
+}
