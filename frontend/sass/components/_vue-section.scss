@@ -1,0 +1,113 @@
+@use "../abstracts";
+
+
+.section-helper {
+  font-size: 1rem;
+  line-height: 1.4;
+  color: abstracts.$color-text-muted;
+}
+
+.albums-loader,
+.loader-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 2rem 0;
+  text-align: center;
+}
+
+.error-message {
+  padding: 1rem 0;
+  text-align: center;
+  color: abstracts.$color-accent;
+  font-weight: 600;
+}
+
+.album-button {
+  display: block;
+  width: 100%;
+  padding: 0;
+  text-align: left;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: inherit;
+  font: inherit;
+}
+
+.album-button img {
+  display: block;
+  width: 100%;
+}
+
+.album-card {
+  padding: 14px;
+  background: abstracts.$color-bg-card;
+  border-radius: abstracts.$radius-xl;
+  border: 2px solid transparent;
+  transition: abstracts.$transition-fast;
+}
+
+.album-card:hover {
+  border-color: abstracts.$color-accent;
+  transform: translateY(-4px);
+}
+
+.album-cover {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  margin-bottom: 16px;
+  overflow: hidden;
+  background-color: #d2d2d2;
+  border-radius: abstracts.$radius-large;
+}
+
+.album-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* detail box */
+
+.album-detail-box {
+  display: grid;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: abstracts.$color-bg-card;
+  border-radius: abstracts.$radius-xl;
+}
+
+.detail-image {
+  width: 100%;
+  border-radius: abstracts.$radius-large;
+  object-fit: cover;
+  display: block;
+}
+
+.detail-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.detail-content p {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: abstracts.$color-white;
+}
+
+.detail-label {
+  font-weight: 700;
+  color: abstracts.$color-accent;
+}
+
+.loader {
+  width: 48px;
+  height: 48px;
+}
