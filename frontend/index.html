@@ -9,6 +9,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script defer src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script type="module" src="js/main.js"></script>
 </head>
 <body>
@@ -51,10 +52,10 @@
   <div class="hero-overlay">
     <div class="grid-con">
       <div class="col-span-4 m-col-start-2 m-col-end-12 l-col-start-2 l-col-end-12 hero-content">
-        <h2 class="hero-title">
+        <h1 class="hero-title">
           <span class="hero-title-top">The Warmth of</span>
           <span class="hero-title-bottom">Analog Sound</span>
-        </h2>
+        </h1>
 
         <p class="hero-copy">
           Discover our curated collection of premium vinyl records.
@@ -69,6 +70,7 @@
 
   <!-- Features -->
 <section class="features">
+    <h2 class="hidden">Why Choose Us</h2>
   <div class="grid-con">
 
     <article class="col-span-4 m-col-start-1 m-col-end-5 l-col-start-1 l-col-end-5 feature-card">
@@ -104,6 +106,7 @@
   <div class="grid-con">
     <div class="col-span-4 m-col-start-3 m-col-end-11 l-col-start-3 l-col-end-11 albums-heading">
       <h2 class="section-title">Featured Albums</h2>
+      <h3 class="hidden">static albums</h3>
       <p class="section-subtitle">Handpicked classics and modern masterpieces</p>
     </div>
   </div>
@@ -114,11 +117,11 @@
     <article
   class="col-span-4 m-col-start-1 m-col-end-4 l-col-start-1 l-col-end-4 album-card"
   data-genre="ROCK"
-  data-title="The Velvet Underground"
-  data-artist="The Velvet Underground & Nico"
-  data-price="$29.99"
-  data-image="images/albums/velvet-underground.jpg"
->
+  data-title="The Dark Side of the Moon"
+  data-artist="Pink Floyd"
+  data-price="$34.99"
+  data-image="images/albums/pink-floyd.jpg"
+  data-description="Classic progressive rock album.">
       <div class="album-cover">
         <a href="#" class="add-to-cart">Add to cart 🛒</a>
       </div>
@@ -134,12 +137,12 @@
 
     <article
   class="col-span-4 m-col-start-4 m-col-end-7 l-col-start-4 l-col-end-7 album-card album-card"
-  data-genre="ROCK"
-  data-title="The Velvet Underground"
-  data-artist="The Velvet Underground & Nico"
+  data-genre="JAZZ"
+  data-title="Kind of Blue"
+  data-artist="Miles Davis"
   data-price="$29.99"
-  data-image="images/albums/velvet-underground.jpg"
->
+  data-image="images/albums/kind-of-blue.jpg"
+  data-description="Classic progressive rock album.">
       <div class="album-cover">
         <a href="#" class="add-to-cart">Add to cart 🛒</a>
       </div>
@@ -155,12 +158,12 @@
 
    <article
   class="col-span-4 m-col-start-7 m-col-end-10 l-col-start-7 l-col-end-10 album-card"
-  data-genre="ROCK"
-  data-title="The Velvet Underground"
-  data-artist="The Velvet Underground & Nico"
-  data-price="$29.99"
-  data-image="images/albums/velvet-underground.jpg"
->
+  data-genre="POP"
+  data-title="Thriller"
+  data-artist="Michael Jackson"
+  data-price="$32.99"
+  data-image="images/albums/thriller.jpg"
+  data-description="Classic progressive rock album.">
       <div class="album-cover">
         <a href="#" class="add-to-cart">Add to cart 🛒</a>
       </div>
@@ -176,12 +179,12 @@
 
     <article
   class="col-span-4 m-col-start-10 m-col-end-13 l-col-start-10 l-col-end-13 album-card"
-  data-genre="ROCK"
-  data-title="The Velvet Underground"
-  data-artist="The Velvet Underground & Nico"
-  data-price="$29.99"
+  data-genre="HIP HOP"
+  data-title="DAMN."
+  data-artist="Kendrick Lamar"
+  data-price="$31.99"
   data-image="images/albums/velvet-underground.jpg"
->
+  data-description="Classic progressive rock album.">
       <div class="album-cover">
         <a href="#" class="add-to-cart">Add to cart 🛒</a>
       </div>
@@ -200,6 +203,7 @@
 
   <!-- Quote -->
 <section class="quote-section">
+    <h2 class="hidden"> quote </h2>
   <div class="quote-overlay">
     <div class="grid-con">
       <div class="col-span-4 m-col-start-2 m-col-end-12 l-col-start-2 l-col-end-12 quote-content">
@@ -212,112 +216,50 @@
   </div>
 </section>
 
+
   <!-- New Arrivals -->
-<section class="new-arrivals">
-  <div class="grid-con">
-    <div class="col-span-4 m-col-start-3 m-col-end-11 l-col-start-3 l-col-end-11 arrivals-heading">
-      <h2 class="section-title">New Arrivals</h2>
-      <p class="section-subtitle">Fresh additions to our collection</p>
+<section class="new-arrivals" id="app">
+
+    <div class="grid-con">
+        <div class="col-span-4 m-col-start-3 m-col-end-11 l-col-start-3 l-col-end-11 arrivals-heading">
+        <h2 class="section-title">New Arrivals</h2>
+        <p class="section-subtitle">Fresh additions to our collection</p>
+        </div>
     </div>
+
+
+<div class="grid-con">
+  <div v-if="loadingAlbums" class="col-span-full albums-loader">
+    <img src="images/loader.svg" alt="Loading albums" class="loader">
   </div>
 
-  <div class="grid-con arrivals-grid">
-    <article class="col-span-4 m-col-start-1 m-col-end-4 l-col-start-1 l-col-end-4 album-card">
-      <div class="album-cover">
-        <a href="#" class="add-to-cart">Add to cart 🛒</a>
-      </div>
-      <div class="album-info">
-        <h4 class="genre">ROCK</h4>
-        <h3 class="artist-name">NAME OF THE ARTIST</h3>
-        <p class="album-name">Name of the album</p>
-        <p class="price">$29.99</p>
-      </div>
-    </article>
-
-    <article class="col-span-4 m-col-start-4 m-col-end-7 l-col-start-4 l-col-end-7 album-card">
-      <div class="album-cover">
-        <a href="#" class="add-to-cart">Add to cart 🛒</a>
-      </div>
-      <div class="album-info">
-        <h4 class="genre">JAZZ</h4>
-        <h3 class="artist-name">NAME OF THE ARTIST</h3>
-        <p class="album-name">Name of the album</p>
-        <p class="price">$29.99</p>
-      </div>
-    </article>
-
-    <article class="col-span-4 m-col-start-7 m-col-end-10 l-col-start-7 l-col-end-10 album-card">
-      <div class="album-cover">
-        <a href="#" class="add-to-cart">Add to cart 🛒</a>
-      </div>
-      <div class="album-info">
-        <h4 class="genre">POP</h4>
-        <h3 class="artist-name">NAME OF THE ARTIST</h3>
-        <p class="album-name">Name of the album</p>
-        <p class="price">$29.99</p>
-      </div>
-    </article>
-
-    <article class="col-span-4 m-col-start-10 m-col-end-13 l-col-start-10 l-col-end-13 album-card">
-      <div class="album-cover">
-        <a href="#" class="add-to-cart">Add to cart 🛒</a>
-      </div>
-      <div class="album-info">
-        <h4 class="genre">HIP HOP</h4>
-        <h3 class="artist-name">NAME OF THE ARTIST</h3>
-        <p class="album-name">Name of the album</p>
-        <p class="price">$29.99</p>
-      </div>
-    </article>
-
-    <article class="col-span-4 m-col-start-1 m-col-end-4 l-col-start-1 l-col-end-4 album-card">
-      <div class="album-cover">
-        <a href="#" class="add-to-cart">Add to cart 🛒</a>
-      </div>
-      <div class="album-info">
-        <h4 class="genre">ROCK</h4>
-        <h3 class="artist-name">NAME OF THE ARTIST</h3>
-        <p class="album-name">Name of the album</p>
-        <p class="price">$29.99</p>
-      </div>
-    </article>
-
-    <article class="col-span-4 m-col-start-4 m-col-end-7 l-col-start-4 l-col-end-7 album-card">
-      <div class="album-cover">
-        <a href="#" class="add-to-cart">Add to cart 🛒</a>
-      </div>
-      <div class="album-info">
-        <h4 class="genre">JAZZ</h4>
-        <h3 class="artist-name">NAME OF THE ARTIST</h3>
-        <p class="album-name">Name of the album</p>
-        <p class="price">$29.99</p>
-      </div>
-    </article>
-
-    <article class="col-span-4 m-col-start-7 m-col-end-10 l-col-start-7 l-col-end-10 album-card">
-      <div class="album-cover">
-        <a href="#" class="add-to-cart">Add to cart 🛒</a>
-      </div>
-      <div class="album-info">
-        <h4 class="genre">POP</h4>
-        <h3 class="artist-name">NAME OF THE ARTIST</h3>
-        <p class="album-name">Name of the album</p>
-        <p class="price">$29.99</p>
-      </div>
-    </article>
-
-    <article class="col-span-4 m-col-start-10 m-col-end-13 l-col-start-10 l-col-end-13 album-card">
-      <div class="album-cover">
-        <a href="#" class="add-to-cart">Add to cart 🛒</a>
-      </div>
-      <div class="album-info">
-        <h4 class="genre">HIP HOP</h4>
-        <h3 class="artist-name">NAME OF THE ARTIST</h3>
-        <p class="album-name">Name of the album</p>
-        <p class="price">$29.99</p>
-      </div>
-    </article>
+  <div v-else-if="error" class="col-span-full error-message">
+    {{ error }}
   </div>
+
+  <div v-else class="col-span-full grid-con arrivals-grid">
+
+    <article
+      v-for="album in albumsData"
+      :key="album.id"
+      class="col-span-4 m-col-span-6 l-col-span-3 album-card">
+      <button class="album-button" @click="getAlbum(album.id)">
+        <div class="album-cover">
+          <img :src="album.image_url" :alt="album.title">
+        </div>
+
+        <div class="album-info">
+          <p class="genre">{{ album.genre }}</p>
+          <h3 class="artist-name">{{ album.artist }}</h3>
+          <p class="album-name">{{ album.title }}</p>
+          <span class="price">{{ album.price }}</span>
+        </div>
+      </button>
+    </article>
+
+  </div>
+</div>
+
 </section>
 
 
@@ -330,7 +272,7 @@
 
     <div class="album-popup-content">
       <div class="album-popup-image-wrap">
-        <img class="album-popup-image" src="dd" alt="dd">
+        <img class="album-popup-image" src="no-source-yet" alt="">
       </div>
 
       <div class="album-popup-info">
@@ -338,6 +280,7 @@
         <h2 class="popup-title"></h2>
         <p class="popup-artist"></p>
         <p class="popup-price"></p>
+        <p class="popup-description"></p>
 
         <a href="#" class="popup-cart-button">Add to Cart</a>
       </div>
