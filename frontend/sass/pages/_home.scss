@@ -273,6 +273,40 @@ a {
   row-gap: 2rem;
 }
 
+.search-input {
+  width: 100%;
+  height: 4.2rem;
+  padding: 0 1.5rem;
+  border: none;
+  border-radius: 1rem;
+  background: abstracts.$color-bg-card;
+  color: #ffffff;
+  font-size: 1.1rem;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.search-input::placeholder {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+
+.search-btn {
+  height: 3.8rem;
+  padding: 0 2rem;
+  border: none;
+  border-radius: 1rem;
+  background-color: #ececec;
+  color: abstracts.$color-black;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.search-btn:hover {
+  opacity: 0.9;
+}
+
 
 //  ------------------------- why vinyl -------------------------
 

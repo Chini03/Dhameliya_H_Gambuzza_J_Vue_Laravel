@@ -147,6 +147,7 @@
         <a href="#" class="add-to-cart">Add to cart 🛒</a>
       </div>
 
+<<<<<<< Updated upstream
       <div class="album-info">
         <h4 class="genre">JAZZ</h4>
         <h3 class="artist-name">Miles Davis</h3>
@@ -155,6 +156,46 @@
       </div>
     </article>
 
+=======
+  <div class="grid-con">
+    <div v-if="loadingAlbums" class="col-span-full albums-loader">
+      <img src="images/loader.svg" alt="Loading albums" class="loader">
+    </div>
+
+    <div v-else-if="error" class="col-span-full error-message">
+      {{ error }}
+    </div>
+
+<div class="grid-con search-bar">
+  <form @submit.prevent="searchAlbums" class="search-form col-span-4 m-col-start-2 m-col-end-12 l-col-start-2 l-col-end-12">
+    
+    <input
+      class="search-input"
+      type="text"
+      v-model="search.song_name"
+      placeholder="Search by song name">
+
+    <input
+      class="search-input"
+      type="text"
+      v-model="search.artist_name"
+      placeholder="Search by artist name">
+
+    <input
+      class="search-input"
+      type="text"
+      v-model="search.genre_name"
+      placeholder="Search by genre name" >
+
+    <div class="search-button-wrap">
+      <button type="submit" class="search-btn">Search</button>
+    </div>
+
+  </form>
+</div>
+
+    <div v-else class="col-span-full grid-con arrivals-grid">
+>>>>>>> Stashed changes
 
    <article
   class="col-span-4 m-col-start-7 m-col-end-10 l-col-start-7 l-col-end-10 album-card"
