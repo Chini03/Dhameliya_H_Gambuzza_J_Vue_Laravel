@@ -40,7 +40,20 @@ class SongsFactory extends Factory
             // 
             'description' => $this->faker->paragraph(),
             // null because to be entered manually
-            'thumbnail' => null,
+            'thumbnail' => $this->faker->unique()->randomElement([
+                'images/vinyl/vinyl-1.webp',
+                'images/vinyl/vinyl-2.webp',
+                'images/vinyl/vinyl-3.webp',
+                'images/vinyl/vinyl-4.webp',
+                'images/vinyl/vinyl-5.webp',
+                'images/vinyl/vinyl-6.webp',
+                'images/vinyl/vinyl-7.webp',
+                'images/vinyl/vinyl-8.webp',
+                'images/vinyl/vinyl-9.webp',
+                'images/vinyl/vinyl-10.webp',
+                'images/vinyl/vinyl-11.webp',
+                'images/vinyl/vinyl-12.webp'
+            ]),
             'thumbnail_alt' => null
         ];
     }

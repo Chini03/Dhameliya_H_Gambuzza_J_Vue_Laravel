@@ -41,4 +41,8 @@ class SongController extends Controller
         $songs = $songsQuery->get();
         return $songs;
     }
+    public function show(Songs $song) {
+        $song->load(['artist', 'genre']);
+        return $song;
+    }
 }

@@ -8,7 +8,8 @@ export function vue() {
                 error: null,
                 selectedAlbum: null,
                 loadingAlbums: true,
-                loadingAlbumDetails: false
+                loadingAlbumDetails: false,
+                showPopup: false
             };
         },
 
@@ -19,52 +20,84 @@ export function vue() {
 
         methods: {
 
-            getAlbums() {
+            getAlbums(searchParams = {}) {
+                this.loadingAlbums = true;
+                this.error = null;
+
+                let url = "http://127.0.0.1:8000/api/songs";
+
+                // builds the url for the search functionality
+                const query = new URLSearchParams(searchParams).toString();
+                if (query) {
+                    url += `?${query}`;
+                }
 
                 // Simulate an API 
 
-                this.albumsData = [
-                    {
-                        id: 1,
-                        genre: "Rock",
-                        artist: "Pink Floyd",
-                        title: "The Wall",
-                        price: "$29.99",
-                        description: "Classic progressive rock album.",
-                        image_url: ""
-                    },
-                    {
-                        id: 2,
-                        genre: "Jazz",
-                        artist: "Miles Davis",
-                        title: "Kind of Blue",
-                        price: "$24.99",
-                        description: "Legendary jazz masterpiece.",
-                        image_url: ""
-                    }
-                ];
+                fetch(url)
+                .then(res => res.json())
+                .then(data => {
+                    // map API → Vue structure
+                    this.albumsData = data.map(song => ({
+                        id: song.id,
+                        title: song.name,
+                        artist: song.artist?.name || "Unknown",
+                        genre: song.genre?.name || "Unknown",
+                        price: `$${song.price}`,
+                        description: song.description,
+                        image_url: song.thumbnail
+                    }));
+
+                    this.loadingAlbums = false;
+                })
+                .catch(err => {
+                    this.error = err.message;
+                    this.loadingAlbums = false;
+                });
 
                 this.loadingAlbums = false;
             },
 
             getAlbum(id) {
+                console.log(id);
 
                 this.loadingAlbumDetails = true;
                 this.error = null;
                 this.selectedAlbum = null;
 
-                const foundAlbum = this.albumsData.find(album => album.id === id);
+                fetch(`http://127.0.0.1:8000/api/songs/${id}`)
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log("Album data:", data);
 
-                if (!foundAlbum) {
-                    this.error = "Album not found.";
-                    this.loadingAlbumDetails = false;
-                    return;
-                }
+                        
+                        this.selectedAlbum = {
+                            id: data.id,
+                            title: data.name,
+                            artist: data.artist?.name || "Unknown",
+                            genre: data.genre?.name || "Unknown",
+                            price: `$${data.price}`,
+                            description: data.description,
+                            image_url: data.thumbnail
+                        };
+                        console.log(this.selectedAlbum);
 
-                this.selectedAlbum = foundAlbum;
-                this.loadingAlbumDetails = false;
+                        this.loadingAlbumDetails = false;
+                        this.showPopup = true;
+
+                        
+                        // document.querySelector("#albumPopup").classList.remove("hidden");
+                    })
+                    .catch(err => {
+                        this.error = err.message;
+                        this.loadingAlbumDetails = false;
+                    });
+
+            },
+            closePopUp() {
+                this.showPopup = false;
+                this.selectedAlbum = null;
             }
-
         }
 
     });
