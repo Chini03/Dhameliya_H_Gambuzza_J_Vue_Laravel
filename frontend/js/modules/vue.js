@@ -9,7 +9,12 @@ export function vue() {
                 selectedAlbum: null,
                 loadingAlbums: true,
                 loadingAlbumDetails: false,
-                showPopup: false
+                showPopup: false,
+                search: {
+                    song_name: '',
+                    artist_name: '',
+                    genre_name: ''
+                }
             };
         },
 
@@ -97,6 +102,9 @@ export function vue() {
             closePopUp() {
                 this.showPopup = false;
                 this.selectedAlbum = null;
+            },
+            searchAlbums() {
+                this.getAlbums(this.search);
             }
         }
 

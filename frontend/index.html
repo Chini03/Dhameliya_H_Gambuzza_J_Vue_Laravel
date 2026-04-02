@@ -237,6 +237,17 @@
       {{ error }}
     </div>
 
+    <div class="grid-con search-bar">
+      <div class="col-span-4 m-col-start-2 m-col-end-12 l-col-start-2 l-col-end-12">
+        <form @submit.prevent="searchAlbums">
+          <input type="text" v-model="search.song_name" placeholder="Search by song name">
+          <input type="text" v-model="search.artist_name" placeholder="Search by artist name">
+          <input type="text" v-model="search.genre_name" placeholder="Search by genre name">
+          <button type="submit" class="btn-primary">Search</button>
+        </form>
+      </div>
+    </div>
+
     <div v-else class="col-span-full grid-con arrivals-grid">
 
       <article
