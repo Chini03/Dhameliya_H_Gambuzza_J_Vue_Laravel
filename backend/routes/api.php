@@ -23,4 +23,5 @@ Route::get('/', function() {
     return json_encode([]);
 });
 
-Route::get('/songs', [SongController::class, 'index']);
+Route::get('/songs', [SongController::class, 'index'])->withoutMiddleware('throttle:api');
+Route::get('/songs/{song}', [SongController::class, 'show']);

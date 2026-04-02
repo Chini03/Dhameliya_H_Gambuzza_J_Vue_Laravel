@@ -5,6 +5,7 @@ import { vue } from "./modules/vue.js";
 
 
 burgerMenu();
-scrollAnimation();
-popup();
 vue();
+// popup();
+scrollAnimation();
+
